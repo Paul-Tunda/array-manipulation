@@ -1,40 +1,65 @@
 
-let shoppingList = []; // declaring the array globally
+let shoppingList = [];
 
-startProgram();
+document.addEventListener("DOMContentLoaded", function () {
 
-function startProgram(){
+    const addButton = document.getElementById("add_item_button");
+    const removeButton = document.getElementById("remove_item_button");
 
+    addButton.addEventListener("click", function () {
 
+        const userInput = document.getElementById("add_item").value.trim().toLowerCase();
 
-}
+        if (userInput !== "") {
 
+            addItem(userInput);
+            renderList();
 
-function addItem (item){
+            document.getElementById("add_item").value = ""; // Clear input
 
-    // only add items that are not already included
-    if(!shoppingList.includes(item)){
+        }
+    });
+
+    removeButton.addEventListener("click", function () {
+
+        removeLastItem();
+        renderList();
+
+    });
+
+});
+
+function addItem(item) {
+
+    if (!shoppingList.includes(item)) {
+
         shoppingList.push(item);
-    }
 
+    } else {
+
+        alert("Item already exists in the list.");
+
+    }
 }
 
-
-function removeLastItem (){
+function removeLastItem() {
 
     shoppingList.pop();
 
 }
 
+function renderList() {
 
-function displayList (){
+    const listElement = document.getElementById("shopping_list_display");
+    listElement.innerHTML = ""; // Clear list first
 
-    console.log(shoppingList);
+    shoppingList.forEach(item => {
 
-}
+        const li = document.createElement("li");
+        li.textContent = item;
+        li.className = "list-group-item";
+        listElement.appendChild(li);
 
-function filterItems(searchTerm) {
-
-    return shoppingList.filter(item => item.toLowerCase().includes(searchTerm.toLowerCase()));
+    });
 
 }
