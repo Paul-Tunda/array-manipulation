@@ -9,8 +9,16 @@ function startProgram(){
 
 }
 
+
 function addItem (item){
 
     shoppingList.push(item);
+
+}
+
+
+function removeLastItem (){
+
+    shoppingList.pop();
 
 }
