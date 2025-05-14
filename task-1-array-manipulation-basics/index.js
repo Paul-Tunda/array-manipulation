@@ -22,3 +22,10 @@ function removeLastItem (){
     shoppingList.pop();
 
 }
+
+
+function displayList (){
+
+    console.log(shoppingList);
+
+}
