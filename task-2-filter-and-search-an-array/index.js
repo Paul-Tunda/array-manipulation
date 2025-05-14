@@ -32,3 +32,7 @@ function displayList (){
     console.log(shoppingList);
 
 }
+
+function filterItems(searchTerm) {
+    return shoppingList.filter(item => item.toLowerCase().includes(searchTerm.toLowerCase()));
+}
