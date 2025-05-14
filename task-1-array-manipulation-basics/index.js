@@ -1,8 +1,16 @@
 
+let shoppingList = []; // declaring the array globally
+
 startProgram();
 
 function startProgram(){
 
-    let shoppingList = [];
+
+
+}
+
+function addItem (item){
+
+    shoppingList.push(item);
 
 }
